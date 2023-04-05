@@ -1,0 +1,117 @@
+\newcommand{\chapternumber}[1]{\def\@chapternumber{#1}}
+
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{bg-color}{HTML}{FAFBFC}
+
+\setbeamercolor{background canvas}{bg=bg-color}
+
+% \setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{enumerate item}{fg=black}
+% \setbeamercolor{alerted text}{fg=black}
+\setbeamercolor{section in toc}{fg=black}
+
+\makeatletter
+\setbeamertemplate{title page}[default][left = 0pt]
+\setbeamertemplate{title page}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[above right, inner sep = 0pt] at (current page.south west) {
+            \includegraphics[width=\paperwidth, height=\paperheight]{images/background-title.png}
+        };
+        \node[above=0.5cm, text centered, text width=4.5cm, anchor=center, align=center] at (current page.center) {
+            % \usebeamerfont{title}{
+                % \color{black}{\inserttitle}
+            % }
+            {\fontsize{25}{25}\selectfont\color{black}{\inserttitle}}
+        };
+        \draw[primary-color, line width = 2pt] ($(current page.center) - (2.2, 2.7) $) rectangle ($ (current page.center) + (2.2, 2.7) $);
+        \draw[primary-color, line width = 2pt] ($(current page.center) - (2.2, 2.7) $) rectangle ($ (current page.center) + (2.2, -2.7) + (0, 1) $);
+        \fill[primary-color, line width = 2pt] ($(current page.center) - (2.2, 2.7) + (1, 0) $) rectangle ($ (current page.center) + (2.2, -2.7) + (0, 1) $);
+        \node[below=2.2cm, right=0.5cm, anchor=center, text width=3.2cm, text centered] at (current page.center) {
+            \color{white}{\textbf{\insertsubtitle}}
+        };
+        \node[below=2.2cm, left=1.7cm, anchor=center] at (current page.center) {
+            {\fontsize{15}{0}\selectfont\textbf{\padzeroes[2]\decimalnum{\@chapternumber}}}
+        };
+        \node[above=0.95cm, left=2.2cm, anchor=west] at (current page.south) {
+            \includegraphics[width=2.1cm, height=0.5cm, keepaspectratio]{images/logo-ansi-detailed.png}
+        };
+        \node[above=0.95cm, right=2.2cm, anchor=east] at (current page.south) {
+            \includegraphics[width=2.1cm, height=0.5cm, keepaspectratio]{images/logo-hyundaimobis.png}
+        };
+    \end{tikzpicture}
+}
+\makeatother
+
+\setbeamertemplate{section page}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[above right, inner sep = 0pt] at (current page.south west) {
+            \includegraphics[width=\paperwidth, height=\paperheight]{images/background-section.png}
+        };
+        \draw[white, line width=2pt] ($ (current page.west) + (2.0, -1.2) + (-0.15, 0.15) $) rectangle +(2.4, 2.4);
+        \draw[white, line width=2pt] ($ (current page.west) + (2.0, -1.2) + (0.15, -0.15) $) rectangle +(2.4, 2.4);
+        \node[right=3.2cm, anchor=center] at (current page.west) {
+            {\fontsize{30}{30}\selectfont\color{white}{\textbf{\padzeroes[2]\decimal{section}}}}
+        };
+        \node[right=5cm, anchor=west] at (current page.west) {
+            {\fontsize{30}{30}\selectfont\color{white}{\textbf{\insertsection}}}
+        };
+    \end{tikzpicture}
+}
+
+\setbeamertemplate{frametitle}{
+    \vskip1cm
+    {\fontsize{20}{20}\selectfont\color{black}{\textbf{\insertframetitle}}}
+    \\
+    \begin{tikzpicture}
+        \draw[lightgray, line width=1.5pt] (0, 0) -- (10, 0);
+        \draw[primary-color, line width=1.5pt] (0, 0) -- (3, 0);
+    \end{tikzpicture}
+}
+
+\setbeamertemplate{footline}{
+    \vbox{
+        \leavevmode
+        \hspace{\fill}
+        \includegraphics[height=0.3cm]{images/logo-ansi.png}
+        \hspace{\fill}
+    }
+    \vspace{0.4cm}
+}
+
+\makeatletter
+\setbeamertemplate{sidebar left}{
+    \vspace{\fill}
+    \hspace{0.2cm}\rotatebox{90}{%
+        \fontsize{8}{8}\selectfont\color{gray}{%
+            \textbf{%
+                \padzeroes[2]\decimalnum{\@chapternumber} \insertsubtitle%
+            }%
+        }%
+    }%
+    \vspace{\fill}
+}
+\makeatother
+
+\setbeamersize{sidebar width right=1cm}
+\setbeamertemplate{sidebar right}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=east, left=0.3cm] at (current page.east) {
+            \fontsize{10}{10}\selectfont\color{black}{\textbf{\insertpagenumber}}
+        };
+    \end{tikzpicture}
+}
+
+% \setbeamertemplate{background}{
+    % \begin{tikzpicture}
+        % \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        % \fill[color=gray] (-\paperwidth / 2, 6) rectangle (\the\paperwidth, \the\paperheight);
+
+        % \ifnum\thepage=1\relax
+        %     \node[] at (0, 0) { \includegraphics[width=\paperwidth, height=\paperheight]{images/background-title.png} };
+        %     \node[] at (0, 0) { \color{black}{\inserttitle} };
+        %     \draw[primary-color, line width = 2pt] (-2.2, -2.7) rectangle (2.2, 2.7);
+        % \else
+        % \fi
+    % \end{tikzpicture}
+% }
