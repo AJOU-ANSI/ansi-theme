@@ -39,6 +39,13 @@
         Path = {./fonts/},
         Extension = {.otf}
     ]
+    \newfontfamily\NotoSansKR{NotoSansKR}[
+        UprightFont = {*-Regular},
+        BoldFont = {*-Bold},
+        % ItalicFont = {*-Italic},
+        Path = {./fonts/},
+        Extension = {.otf}
+    ]
 
 \definecolor{primary-color}{RGB}{232, 100, 62}
 
@@ -98,12 +105,15 @@
 
 \begin{frame}{테스트}
     테스트 테스트 테스트
-    \begin{enumerate}
+    \begin{itemize}
         \item 이렇게
         \item 목록을
         \item 적을 수
         \item 있습니다.
-    \end{enumerate}
+        \begin{itemize}
+            \item subitem
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
