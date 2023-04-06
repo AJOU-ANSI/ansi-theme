@@ -9,10 +9,36 @@
 \usepackage{kotex}
 \usepackage{fmtcount}
 \usepackage{fontspec}
-    \setmainfont{Noto Sans}
-    \setsansfont{Noto Sans}
-    \setmainhangulfont{Noto Sans KR}
-    \setsanshangulfont{Noto Sans KR}
+    \setmainfont{NotoSans}[
+        UprightFont = {*-Regular},
+        BoldFont = {*-Bold},
+        ItalicFont = {*-Italic},
+        BoldItalicFont = {*-BoldItalic},
+        Path = {./fonts/},
+        Extension = {.ttf}
+    ]
+    \setsansfont{NotoSans}[
+        UprightFont = {*-Regular},
+        BoldFont = {*-Bold},
+        ItalicFont = {*-Italic},
+        BoldItalicFont = {*-BoldItalic},
+        Path = {./fonts/},
+        Extension = {.ttf}
+    ]
+    \setmainhangulfont{NotoSansKR}[
+        UprightFont = {*-Regular},
+        BoldFont = {*-Bold},
+        % ItalicFont = {*-Italic},
+        Path = {./fonts/},
+        Extension = {.otf}
+    ]
+    \setsanshangulfont{NotoSansKR}[
+        UprightFont = {*-Regular},
+        BoldFont = {*-Bold},
+        % ItalicFont = {*-Italic},
+        Path = {./fonts/},
+        Extension = {.otf}
+    ]
 
 \definecolor{primary-color}{RGB}{232, 100, 62}
 

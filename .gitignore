@@ -8,3 +8,6 @@
 *.snm
 *.synctex.gz
 *.toc
+*.zip
+
+.DS_Store
